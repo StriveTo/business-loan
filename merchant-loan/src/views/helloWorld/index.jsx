@@ -1,22 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { saveToken } from '../../store/action'
-import PropTypes from 'prop-types'
+import { Button } from 'antd-mobile';
+import { saveToken } from '@/store/action';
+// import PropTypes from 'prop-types'
 
 class Hello extends Component {
-  static propTypes = {
-    token: PropTypes.string.isRequired,
-    saveToken: PropTypes.func.isRequired,
-  }
+  // static propTypes = {
+  //   token: PropTypes.string.isRequired,
+  //   saveToken: PropTypes.func.isRequired,
+  // }
   render() {
     return (
       <div>
-        <h1>hello world</h1>
+        <span>hello world</span>
         <input type="text" ref="ipt" />
-        <button onClick={this.props.saveToken.bind(this)}>添加</button>
-        <h2>{this.props.token}</h2>
+        <button onClick={this.add.bind(this)}>添加</button>
+        <span>{this.props.token}</span>
+        <Button type="primary">This is a button</Button>
       </div>
     )
+  }
+  add = () => {
+    this.props.saveToken(this.refs.ipt.value)
   }
 }
 
