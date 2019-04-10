@@ -9,19 +9,29 @@ class Hello extends Component {
   //   token: PropTypes.string.isRequired,
   //   saveToken: PropTypes.func.isRequired,
   // }
+  state = {
+    word: 'hello world',
+    test: '测试参数',
+  }
   render() {
     return (
-      <div>
-        <span>hello world</span>
+      <div className="hello">
+        <span>{this.state.word}</span>
         <input type="text" ref="ipt" />
         <button onClick={this.add.bind(this)}>添加</button>
         <span>{this.props.token}</span>
-        <Button type="primary">This is a button</Button>
+        <Button type="primary" onClick={this.goTest.bind(this)}>TEST BUTTON</Button>
       </div>
     )
   }
   add = () => {
     this.props.saveToken(this.refs.ipt.value)
+    this.setState({
+      word: '添加成功!'
+    })
+  }
+  goTest = () => {
+    this.props.history.push(`/test/${this.state.test}`)
   }
 }
 
