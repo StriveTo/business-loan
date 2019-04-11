@@ -32,18 +32,15 @@ switch (env) {
     root = '/'
     break
   case 'dev':
-    // root = 'http://172.28.68.109:8092/ctb-trade/' // 玉民本地
-    // root = 'http://172.28.38.77:8092/ctb-trade/' // 测试环境
-    root = 'http://test.qianbaocard.com:23480/ctb-trade/' // 测试环境
-    // root = 'http://172.28.69.18:8080/ctb-trade/' // 学雷本地
+    root = 'http://test.qianbaocard.com:23480/loan/' // 测试环境
     getContractTempUrl = 'http://test.qianbaocard.com:23480/file/images.do?name='
     break
   case 'test':
-    root = `${origin}/ctb-trade/`
+    root = `${origin}/loan/`
     getContractTempUrl = `${origin}/file/images.do?name=`
     break
   case 'pro':
-    root = `${origin}/ctb-trade/`
+    root = `${origin}/loan/`
     getContractTempUrl = `https://img${random}.qianbao.com/public/qianbaolife/`
     break
   default:
